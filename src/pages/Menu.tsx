@@ -16,7 +16,7 @@ export default function MenuPage() {
   return (
     <div>
       <Typography variant="h5" gutterBottom>Menu</Typography>
-      123123123123123
+      12312312312312300
       <Grid container spacing={2}>
         {items.map(item => (
           <Grid item xs={12} sm={6} md={4} key={item.id}>
