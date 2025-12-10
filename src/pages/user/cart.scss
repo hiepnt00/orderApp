@@ -1,0 +1,14 @@
+:root{--primary:#ff7a00}
+.cart-root{background:#fff;min-height:100vh;padding:16px}
+.table-row{display:flex;align-items:center;gap:12px;padding:12px 0}
+.table-num{background:#eaf6ff;padding:8px 12px;border-radius:8px;color:#0b8043;font-weight:700}
+.items{margin-top:8px}
+.cart-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f0f0f0}
+.cart-item img{width:72px;height:56px;object-fit:cover;border-radius:8px}
+.meta{flex:1}
+.qty{display:flex;align-items:center;gap:8px}
+.payment{padding:12px 0}
+.options label{display:block;margin:6px 0}
+.total-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.total-value{color:var(--primary);font-weight:800}
+.pay-btn{background:var(--primary)!important;width:100%;padding:12px}
