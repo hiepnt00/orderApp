@@ -1,1 +1,0 @@
-import{j as e,B as r,T as t}from"./index-BYFV9gga.js";function s(){return e.jsxs(r,{children:[e.jsx(t,{variant:"h4",gutterBottom:!0,children:"Welcome"}),e.jsx(t,{children:"Use the navigation to visit Menu, Orders or generate QR codes for tables."})]})}export{s as default};
