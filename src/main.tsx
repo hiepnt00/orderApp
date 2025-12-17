@@ -3,21 +3,24 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import "./styles/global.scss";
+import "./styles/app.scss";
 import { store } from "./store";
 import App from "./App";
 import theme from "./theme";
+import { CartProvider } from "./hooks/useCart";
 
 const root = createRoot(document.getElementById("root")!);
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <App />
-        </ThemeProvider>
-      </BrowserRouter>
-    </Provider>
+      <Provider store={store}>
+        <CartProvider>
+          <BrowserRouter>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+            </ThemeProvider>
+          </BrowserRouter>
+        </CartProvider>
+      </Provider>
   </React.StrictMode>
 );

@@ -1,0 +1,116 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+body {
+    background-color: $bg-page;
+    color: $text-dark;
+}
+
+.food-card {
+    border-radius: $radius-md !important;
+    background-color: $bg-card;
+    box-shadow: $shadow-sm;
+    @include hover-lift;
+
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .food-title {
+        font-weight: 600;
+        color: $text-dark;
+    }
+
+    .food-sub {
+        font-size: 12px;
+        color: $text-muted;
+    }
+
+    .food-price {
+        color: $success;
+        font-weight: 700;
+    }
+}
+
+.category-tabs {
+    background: $bg-card;
+    padding: 4px;
+    border-radius: 999px;
+    box-shadow: $shadow-sm;
+
+    .MuiToggleButton-root {
+        border: 0 !important;
+        border-radius: 999px !important;
+        text-transform: none;
+        font-weight: 500;
+    }
+}
+
+.cart-summary {
+    border-radius: $radius-lg !important;
+    box-shadow: $shadow-md;
+}
+
+.cart-drawer {
+    .MuiDrawer-paper {
+        border-top-left-radius: $radius-lg;
+        border-bottom-left-radius: $radius-lg;
+    }
+}
+
+.cart-summary-panel {
+    background: $bg-card;
+    border: 1px solid rgba(255,255,255,0.03);
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    transition:
+        height 0.3s ease,
+        transform 0.3s ease;
+
+    height: 72px;
+
+    &.expanded {
+        height: 40vh;
+    }
+}
+
+.cart-summary-header {
+    padding: 12px 16px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-summary-content {
+    padding: 12px 16px;
+    overflow-y: auto;
+
+    animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.MuiAppBar-root {
+    backdrop-filter: blur(8px);
+    background-color: rgba(16,16,20,0.6) !important;
+    color: $text-dark;
+}
