@@ -11,6 +11,7 @@ import {
   TextField,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import AppBreadcrumbs from '../../components/AppBreadcrumbs'
 import { useCart } from '../../hooks/useCart';
 
 const price = new Intl.NumberFormat('vi-VN');
@@ -26,6 +27,7 @@ export default function CheckoutPage() {
 
   return (
     <Container sx={{ py: 2 }}>
+      <AppBreadcrumbs items={[{ label: 'Trang chủ', to: '/' }, { label: 'Chọn món', to: '/menu' }, { label: 'Thanh toán' }]} />
       <Typography variant="h6" fontWeight={700} mb={2}>
         Thanh toán
       </Typography>

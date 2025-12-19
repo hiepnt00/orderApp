@@ -114,3 +114,42 @@ body {
     background-color: rgba(16,16,20,0.6) !important;
     color: $text-dark;
 }
+
+/* Breadcrumb spacing */
+.breadcrumb-wrap {
+    margin-bottom: 16px;
+}
+
+/* Prominent breadcrumb styles */
+.breadcrumb-wrap .app-breadcrumbs {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.03);
+    padding: 6px 12px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+    backdrop-filter: blur(6px);
+}
+
+.breadcrumb-wrap .app-breadcrumbs a {
+    color: $primary !important;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 4px 6px;
+    border-radius: 8px;
+}
+
+.breadcrumb-wrap .app-breadcrumbs a:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.breadcrumb-wrap .app-breadcrumbs .MuiTypography-root {
+    color: $text-dark;
+    font-weight: 700;
+    padding: 4px 6px;
+}
+
+.breadcrumb-wrap .MuiSvgIcon-root {
+    color: rgba(255,255,255,0.6);
+}

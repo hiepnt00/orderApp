@@ -7,6 +7,7 @@ import CartDrawer from './CartDrawer';
 import { useCart } from '../../hooks/useCart';
 import CategoryTabs from './CategoryTabs';
 import FoodCard from './FoodCard';
+import AppBreadcrumbs from '../../components/AppBreadcrumbs';
 
 export default function FoodSelection() {
   const [category, setCategory] = useState<Category>('all');
@@ -22,7 +23,8 @@ export default function FoodSelection() {
 
   return (
     <>
-      <Container sx={{ py: 2 }}>
+      <Container sx={{ py: 2, my: 12 }}>
+        <AppBreadcrumbs items={[{ label: 'Trang chủ', to: '/' }, { label: 'Chọn món' }]} />
         <CategoryTabs value={category} onChange={setCategory} />
         <Stack spacing={2} mt={2}>
           {items.map(i => (

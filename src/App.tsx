@@ -11,6 +11,7 @@ const CheckoutPage = React.lazy(() => import('./pages/FoodSelection/CheckoutPage
 
 const QRGenerator = React.lazy(() => import('./pages/QRGenerator'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
+const TestApiPage = React.lazy(() => import('./pages/TestApiPage'))
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/menu" element={<FoodSelection />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/test-api" element={<TestApiPage />} />
             <Route path="/qr" element={<QRGenerator />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

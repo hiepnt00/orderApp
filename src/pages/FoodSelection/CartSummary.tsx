@@ -105,6 +105,10 @@ export default function CartSummary({
                     {ci.item.name}
                   </Typography>
 
+
+                </Box>
+
+                <Box>
                   <Stack
                     direction="row"
                     alignItems="center"
@@ -141,15 +145,15 @@ export default function CartSummary({
                       <AddIcon fontSize="small" />
                     </IconButton>
                   </Stack>
+
+                  <Typography
+                    fontWeight={600}
+                    whiteSpace="nowrap"
+                  >
+                    {price.format(ci.item.price)} ₫
+                  </Typography>
                 </Box>
 
-                {/* Price */}
-                <Typography
-                  fontWeight={600}
-                  whiteSpace="nowrap"
-                >
-                  {price.format(ci.item.price)} ₫
-                </Typography>
               </Stack>
             ))}
           </Stack>
