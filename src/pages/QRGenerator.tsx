@@ -14,7 +14,7 @@ export default function QRGenerator() {
       <Typography variant="h5" gutterBottom>QR Code Generator</Typography>
       <Typography sx={{ mb: 2 }}>This QR links to the ordering URL (example):</Typography>
       <Box sx={{ background: 'white', display: 'inline-block', p: 2 }}>
-        <QRCode value={exampleUrl} />
+        <QRCode value={exampleUrl} fgColor="#000000" bgColor="#ffffff" style={{ display: 'block' }} />
       </Box>
       <Typography sx={{ mt: 1, }}><InputBase defaultValue={exampleUrl} onChange={(e) => {
         setExampleUrl(e.currentTarget.value)

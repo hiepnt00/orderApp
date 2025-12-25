@@ -12,6 +12,9 @@ const CheckoutPage = React.lazy(() => import('./pages/FoodSelection/CheckoutPage
 const QRGenerator = React.lazy(() => import('./pages/QRGenerator'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
 const TestApiPage = React.lazy(() => import('./pages/TestApiPage'))
+const LoginPage = React.lazy(() => import('./pages/login/LoginPage'))
+const PaymentHistoryPage = React.lazy(() => import('./pages/PaymentHistoryPage'))
+const KitchenOrdersPage = React.lazy(() => import('./pages/KitchenOrdersPage'))
 
 function App() {
   return (
@@ -22,7 +25,10 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/menu" element={<FoodSelection />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/payment-history" element={<PaymentHistoryPage />} />
+            <Route path="/kitchen" element={<KitchenOrdersPage />} />
             <Route path="/test-api" element={<TestApiPage />} />
             <Route path="/qr" element={<QRGenerator />} />
             <Route path="*" element={<NotFound />} />

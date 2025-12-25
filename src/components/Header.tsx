@@ -4,7 +4,9 @@ import {
   Typography,
   Box,
   IconButton,
+  Button,
 } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 
@@ -31,9 +33,17 @@ export default function Header() {
             </Typography>
           </Box>
 
-          <IconButton color="inherit">
-            <SearchIcon color="inherit" />
-          </IconButton>
+          <Box display="flex" alignItems="center" gap={1}>
+            <IconButton color="inherit">
+              <SearchIcon color="inherit" />
+            </IconButton>
+            <Button color="inherit" component={RouterLink} to="/payment-history">
+              Lịch sử
+            </Button>
+            <Button color="inherit" component={RouterLink} to="/login">
+              Đăng nhập
+            </Button>
+          </Box>
         </Box>
 
         {/* Subtitle / location */}

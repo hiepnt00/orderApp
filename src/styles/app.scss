@@ -153,3 +153,30 @@ body {
 .breadcrumb-wrap .MuiSvgIcon-root {
     color: rgba(255,255,255,0.6);
 }
+
+/* QR override: prevent mobile/UA auto-darkening/inversion of SVG */
+.qr-wrap {
+    display: inline-block;
+    background: #ffffff;
+    padding: 12px;
+}
+
+.qr-wrap svg {
+    display: block;
+    background: #ffffff !important;
+    isolation: isolate; /* prevent blend modes from affecting children */
+}
+
+.qr-wrap svg * {
+    fill: #000000 !important;
+    stroke: #000000 !important;
+    color: #000000 !important;
+    mix-blend-mode: normal !important;
+    -webkit-filter: none !important;
+    filter: none !important;
+    image-rendering: -webkit-optimize-contrast;
+    /* Try to opt out of UA image color adjustments */
+    image-color-adjust: exact !important;
+    color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+}

@@ -11,14 +11,17 @@ import {
   TextField,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import AppBreadcrumbs from '../../components/AppBreadcrumbs'
 import { useCart } from '../../hooks/useCart';
+import { addOrder } from '../../store/ordersSlice';
 
 const price = new Intl.NumberFormat('vi-VN');
 
 export default function CheckoutPage() {
   const { state, dispatch } = useCart();
   const nav = useNavigate();
+  const reduxDispatch = useDispatch();
 
   const total = state.items.reduce(
     (s, i) => s + i.quantity * i.item.price,
@@ -97,7 +100,15 @@ export default function CheckoutPage() {
           variant="contained"
           color="success"
           onClick={() => {
-            console.log('ORDER', state);
+            const order = {
+              id: `order_${Date.now()}`,
+              table: state.tableCode,
+              items: state.items.map(i => ({ id: i.item.id, qty: i.quantity, note: i.note })),
+              total,
+              status: 'received' as const,
+              createdAt: new Date().toISOString(),
+            };
+            reduxDispatch(addOrder(order));
             dispatch({ type: 'CLEAR' });
             nav('/');
             alert('Đặt hàng thành công (mock)');

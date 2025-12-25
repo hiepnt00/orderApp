@@ -20,6 +20,9 @@ export default function HomePage() {
         <Button variant="contained" color="success" onClick={() => nav('/test-api')}>
           test api
         </Button>
+         <Button variant="contained" color="success" onClick={() => nav('/kitchen')}>
+          Bếp
+        </Button>
       </Stack>
     </Container>
   );
