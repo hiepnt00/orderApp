@@ -36,9 +36,6 @@ export default function Header() {
           </Box>
 
           <Box display="flex" alignItems="center" gap={1}>
-            <IconButton color="inherit">
-              <SearchIcon color="inherit" />
-            </IconButton>
             <Button color="inherit" component={RouterLink} to="/payment-history">
               Lịch sử
             </Button>

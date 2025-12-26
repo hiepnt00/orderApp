@@ -23,7 +23,7 @@ export default function FoodSelection() {
 
   return (
     <>
-      <Container sx={{ py: 2, my: 12 }}>
+      <Container sx={{ py: 2, mb: 12, mt: 2 }}>
         <AppBreadcrumbs items={[{ label: 'Trang chủ', to: '/' }, { label: 'Chọn món' }]} />
         <CategoryTabs value={category} onChange={setCategory} />
         <Stack spacing={2} mt={2}>
