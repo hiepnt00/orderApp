@@ -6,11 +6,13 @@ import {
   IconButton,
   Button,
 } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 
 export default function Header() {
+  const nav = useNavigate();
+
   return (
     <AppBar position="sticky" elevation={0}>
       <Toolbar
@@ -26,7 +28,7 @@ export default function Header() {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Box display="flex" alignItems="center" gap={1}>
+          <Box display="flex" alignItems="center" gap={1} onClick={() => nav('/')} sx={{ cursor: 'pointer' }}>
             <RestaurantIcon color="inherit" />
             <Typography fontWeight={700} fontSize={18}>
               Food Order

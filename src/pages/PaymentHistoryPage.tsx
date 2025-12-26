@@ -38,7 +38,7 @@ export default function PaymentHistoryPage() {
   const orders = useSelector((state: RootState) => state.orders);
 
   // Filter only completed orders for payment history
-  const completedOrders = orders.filter(order => order.status === 'completed');
+  const completedOrders = orders.listAllOrders.filter(order => order.status === 'completed');
 
   const getItemName = (id: string) => {
     const item = MENU.find(m => m.id === id);

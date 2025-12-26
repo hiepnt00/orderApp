@@ -21,7 +21,7 @@ const initialState = {
       items: [{ id: 'pho_tai', qty: 2, note: 'Ít hành' }, { id: 'bun_bo_hue', qty: 1 }],
       total: 65000 * 2 + 68000,
       status: 'received',
-      createdAt: new Date(Date.now() - 1000 * 60 * 10).toISOString(), // 10 phút trước
+      createdAt: new Date(Date.now() - 1000 * 60 * 10).toISOString(),
     },
     {
       id: 'order_2',
@@ -35,7 +35,31 @@ const initialState = {
       id: 'order_3',
       table: 'C3',
       items: [{ id: 'banh_mi_thit', qty: 3, note: 'Thêm rau' }],
-      total: 0, // placeholder
+      total: 90000, // placeholder
+      status: 'completed',
+      createdAt: new Date(Date.now() - 1000 * 60 * 20).toISOString(),
+    },
+     {
+      id: 'order_4',
+      table: 'A1',
+      items: [{ id: 'pho_tai', qty: 2, note: 'Ít hành' }, { id: 'bun_bo_hue', qty: 1 }],
+      total: 65000 * 2 + 68000,
+      status: 'received',
+      createdAt: new Date(Date.now() - 1000 * 60 * 10).toISOString(), // 10 phút trước
+    },
+    {
+      id: 'order_5',
+      table: 'B2',
+      items: [{ id: 'mi_quang', qty: 1, note: 'Không ớt' }],
+      total: 70000,
+      status: 'in_progress',
+      createdAt: new Date(Date.now() - 1000 * 60 * 5).toISOString(),
+    },
+    {
+      id: 'order_6',
+      table: 'C3',
+      items: [{ id: 'banh_mi_thit', qty: 3, note: 'Thêm rau' }],
+      total: 90000, // placeholder
       status: 'completed',
       createdAt: new Date(Date.now() - 1000 * 60 * 20).toISOString(),
     },
