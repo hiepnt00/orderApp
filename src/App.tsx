@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Container maxWidth="lg" sx={{ mt: 1 }}>
         <Suspense fallback={<Loading />}>
           <Routes >
             <Route path="/" element={<HomePage />} />

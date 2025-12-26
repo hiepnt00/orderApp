@@ -1,39 +1,32 @@
-import React, { useState } from 'react';
+import {
+  closestCenter,
+  DndContext,
+  DragEndEvent,
+  DragOverlay,
+  DragStartEvent,
+  PointerSensor,
+  useDroppable,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
 import {
   Box,
-  Typography,
-  Paper,
-  Stack,
   Chip,
   Divider,
   List,
   ListItem,
   ListItemText,
-  AppBar,
-  Toolbar,
-  Button,
-  Breadcrumbs,
+  Paper,
+  Stack,
+  Typography
 } from '@mui/material';
-import MuiLink from '@mui/material/Link'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
-import { Link as RouterLink } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import AppBreadcrumbs from '../components/AppBreadcrumbs';
+import KitchenOrderCard from '../components/KitchenOrderCard';
+import { MENU } from '../mocks/menu';
 import { RootState } from '../store';
 import { updateOrderStatus } from '../store/ordersSlice';
-import { MENU } from '../mocks/menu';
-import {
-  DndContext,
-  DragStartEvent,
-  DragEndEvent,
-  DragOverlay,
-  PointerSensor,
-  useSensor,
-  useSensors,
-  closestCenter,
-  useDroppable,
-} from '@dnd-kit/core';
-import KitchenOrderCard from '../components/KitchenOrderCard';
-import AppBreadcrumbs from '../components/AppBreadcrumbs';
 
 const price = new Intl.NumberFormat('vi-VN');
 
@@ -64,7 +57,7 @@ export default function KitchenOrdersPage() {
     })
   );
 
-  function Column({ columnId, ordersInColumn }: { columnId: ColumnId; ordersInColumn: typeof orders }) {
+  function Column({ columnId, ordersInColumn }: { columnId: ColumnId; ordersInColumn: typeof orders.listAllOrders }) {
     const { setNodeRef, isOver } = useDroppable({ id: columnId });
 
     return (
@@ -105,10 +98,10 @@ export default function KitchenOrdersPage() {
     return item ? item.name : `Món ${id}`;
   };
 
-  const columns: Record<ColumnId, typeof orders> = {
-    received: orders.filter(order => order.status === 'received'),
-    in_progress: orders.filter(order => order.status === 'in_progress'),
-    completed: orders.filter(order => order.status === 'completed'),
+  const columns: Record<ColumnId, typeof orders.listAllOrders> = {
+    received: orders.listAllOrders.filter(order => order.status === 'received'),
+    in_progress: orders.listAllOrders.filter(order => order.status === 'in_progress'),
+    completed: orders.listAllOrders.filter(order => order.status === 'completed'),
   };
 
   const handleDragStart = (event: DragStartEvent) => {
@@ -125,19 +118,19 @@ export default function KitchenOrdersPage() {
     const newStatus = over.id as ColumnId;
 
     // Nếu thả vào cùng cột, không làm gì
-    const currentOrder = orders.find(o => o.id === orderId);
+    const currentOrder = orders.listAllOrders.find(o => o.id === orderId);
     if (!currentOrder || currentOrder.status === newStatus) return;
 
     // Cập nhật status
     dispatch(updateOrderStatus({ id: orderId, status: newStatus }));
   };
 
-  const activeOrder = activeId ? orders.find(o => o.id === activeId) : null;
+  const activeOrder = activeId ? orders.listAllOrders.find(o => o.id === activeId) : null;
 
   return (
-    <Box sx={{ position: 'relative', left: 'calc(50% - 50vw)', width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ position: 'relative', left: 'calc(50% - 50vw)', width: '100vw', height: 'calc(100vh - 105px)', display: 'flex', flexDirection: 'column' }}>
       <AppBreadcrumbs items={[{ label: 'Trang chủ', to: '/' }, { label: 'Bếp' }]} />
-      <Box sx={{ flex: 1, p: 2, overflow: 'hidden' }}>
+      <Box sx={{ flex: 1, px: 2, overflow: 'hidden' }}>
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
