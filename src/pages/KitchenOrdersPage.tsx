@@ -33,6 +33,7 @@ import {
   useDroppable,
 } from '@dnd-kit/core';
 import KitchenOrderCard from '../components/KitchenOrderCard';
+import AppBreadcrumbs from '../components/AppBreadcrumbs';
 
 const price = new Intl.NumberFormat('vi-VN');
 
@@ -135,17 +136,7 @@ export default function KitchenOrdersPage() {
 
   return (
     <Box sx={{ position: 'relative', left: 'calc(50% - 50vw)', width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ px: 2, pt: 0.5 }}>
-        <Breadcrumbs separator={<ChevronRightIcon fontSize="small" />} sx={{ fontSize: '0.85rem' }}>
-          <MuiLink component={RouterLink} to="/" underline="hover" color="inherit" sx={{ px: 0.6, py: 0.25, borderRadius: 1, border: '1px solid rgba(0,0,0,0.06)' }}>
-            Trang chủ
-          </MuiLink>
-          <Typography sx={{ px: 0.6, py: 0.25, borderRadius: 1, border: '1px solid rgba(0,0,0,0.06)' }}>
-            Bếp
-          </Typography>
-        </Breadcrumbs>
-      </Box>
-
+      <AppBreadcrumbs items={[{ label: 'Trang chủ', to: '/' }, { label: 'Bếp' }]} />
       <Box sx={{ flex: 1, p: 2, overflow: 'hidden' }}>
         <DndContext
           sensors={sensors}

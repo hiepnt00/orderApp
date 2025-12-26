@@ -14,7 +14,7 @@ root.render(
   <React.StrictMode>
       <Provider store={store}>
         <CartProvider>
-          <BrowserRouter>
+          <BrowserRouter basename="/orderApp">
             <ThemeProvider theme={theme}>
               <CssBaseline />
               <App />

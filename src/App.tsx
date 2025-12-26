@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Container from '@mui/material/Container'
 import Loading from './components/Loading'
 import Header from './components/Header'
@@ -22,7 +22,7 @@ function App() {
       <Header />
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Suspense fallback={<Loading />}>
-          <Routes>
+          <Routes >
             <Route path="/" element={<HomePage />} />
             <Route path="/menu" element={<FoodSelection />} />
             <Route path="/login" element={<LoginPage />} />
